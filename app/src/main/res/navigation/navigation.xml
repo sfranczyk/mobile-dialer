@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/dialFragment">
+
+    <fragment
+        android:id="@+id/dialFragment"
+        android:name="pt.ua.dialer.DialFragment"
+        android:label="fragment_dial"
+        tools:layout="@layout/fragment_dial" >
+        <action
+            android:id="@+id/action_dialFragment_to_speedDialSetFragment"
+            app:destination="@id/speedDialSetFragment" />
+        <argument
+            android:name="speedDialData"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/speedDialSetFragment"
+        android:name="pt.ua.dialer.SpeedDialSetFragment"
+        android:label="SpeedDialSetFragment"
+        tools:layout="@layout/fragment_speed_dial_set">
+        <action
+            android:id="@+id/action_speedDialSetFragment_to_dialFragment"
+            app:destination="@id/dialFragment" />
+        <argument
+            android:name="memoryNumber"
+            app:argType="string"
+            android:defaultValue="1" />
+    </fragment>
+</navigation>
